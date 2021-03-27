@@ -1,0 +1,57 @@
+create database park;
+
+직원DB - 이름,비밀번호,성별,생년월일,연락처,이메일,권한
+
+create table park.manage(
+    name varchar(30) not null,
+    password varchar(30) primary key not null,
+    gender varchar(20) not null,
+    birth varchar(30) not null,
+    phone int not null,
+    email varchar(40) not null,
+    power varchar(20) not null
+);
+
+근태DB -  번호, 출근날짜,시간,퇴근날짜,시간,이름
+create table park.work(
+    num int not null,
+    getDay varchar(30) not null,
+    getTime varchar(30) not null,
+    getoffDay varchar(30) not null,
+    getoffTime varchar(30) not null,
+    woker varchar(30) not null
+    );
+
+주차장DB -번호,층수,자리,차번호,사용여부
+
+create table park.parking(
+	parKNum (자동부여),
+	floor varchar(20) not null,
+	seat varchar(20) not null,
+	carNum varchar(20),
+	car boolean not null
+);
+
+
+주차장부 - 번호,(출차)날짜,차량번호,inTime,outTime,요금,근무자,근무중인지
+
+create table park.parkbook(
+    num int primary key,
+    date varchar(30) not null,
+    carNum varchar(30) not null,
+    inTime varchar(30) not null,
+    outTime varchar(30) not null,
+    price int not null,
+    staff varchar(30) not null
+    finish boolean not null
+);
+
+
+수입DB - 연,월,일,수입
+
+create table park.income(
+	year int not null,
+	month int not null,
+	day int not null,
+	income int not null
+);
