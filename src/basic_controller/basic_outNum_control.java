@@ -3,8 +3,10 @@ package basic_controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.net.URL;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.mysql.cj.protocol.Resultset;
@@ -41,7 +43,8 @@ public class basic_outNum_control implements Initializable{
     private Connection connection;
     private DBhandle handler;
     private PreparedStatement pst;
-    
+    private String floor= "";
+    private String seat= "";
 	public void initialize(URL arg0,ResourceBundle arg1) {
 		handler = new DBhandle();
 		
@@ -70,9 +73,6 @@ public class basic_outNum_control implements Initializable{
 				
 				ResultSet rs = pst.executeQuery();
 				int count = 0;
-
-				String floor= "";
-				String seat= "";
 				
 				while(rs.next()) {	
 					count++;
@@ -83,11 +83,14 @@ public class basic_outNum_control implements Initializable{
 
 				if(count==1) {	//차량번호가 있다면 다음 출력
 					try {
-						System.out.println(floor);
 						carNum.getScene().getWindow().hide();
 						
-						Stage stage = new Stage();
+						//출차시간 저장
+						SimpleDateFormat format1 = new SimpleDateFormat ("YYYY-MM-dd HH:mm");
+						Date date = new Date();
+						String outDate = format1.format(date);
 						
+						Stage stage = new Stage();
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(getClass().getResource("/FXML/basic_out.fxml"));
 						
@@ -96,7 +99,7 @@ public class basic_outNum_control implements Initializable{
 						
 						//데이터 전송하기(차량번호)
 						basic_out_control data = loader.getController();
-						data.initData(carNumber,floor,seat);
+						data.initData(carNumber,floor,seat,outDate); //차번호,층,자리,출차시간,버튼
 						//현재 시간도 넘겨주기
 						
 						

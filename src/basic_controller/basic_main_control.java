@@ -91,9 +91,14 @@ public class basic_main_control implements Initializable {
 		try {
 			Stage carIN = new Stage();
 			
-			Parent root = FXMLLoader.load(getClass().getResource("/FXML/basic_inNum.fxml"));
-			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/FXML/basic_inNum.fxml"));
+			Parent root = (Parent) loader.load();
 			Scene scene = new Scene(root);
+			
+			//버튼넘겨주기
+			basic_inNum_control connect = loader.getController();
+			connect.data(carIn);
 			
 			carIN.setScene(scene);
 			carIN.setTitle("입차 차량번호 입력");

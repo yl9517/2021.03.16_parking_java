@@ -175,16 +175,17 @@ public class manage_addStaff_control implements Initializable{
 		});
 		if(elart.getText().equals("")) {
 			pt.play();
-			submit.getScene().getWindow().hide();
-			beforebtn.getScene().getWindow().hide();
 		}
 		//다시 직원관리창 보여주기
 	}
+	
 	public void StaffList() { //등록 성공시 직원리스트 새로 보여주기
 		PauseTransition pt = new PauseTransition();
 		pt.setDuration(Duration.seconds(1));
 		pt.setOnFinished(e -> {
 			try {
+				submit.getScene().getWindow().hide();
+				beforebtn.getScene().getWindow().hide();
 
 				Stage stage = new Stage();
 				Parent root = FXMLLoader.load(getClass().getResource("/FXML/manage_staff2.fxml"));

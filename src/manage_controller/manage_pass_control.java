@@ -89,22 +89,18 @@ public class manage_pass_control implements Initializable{
 						beforebtn.getScene().getWindow().hide(); //이전 창 숨기기
 						
 						Stage manage = new Stage();
+
+						//login객체의 변수값 수정
+						Login login = Login.getInstance();
+						login.isLogin=true;
+						login.isName=worker_name;
+						login.isPower=worker_power;
 					
 						FXMLLoader loader = new FXMLLoader();
 						loader.setLocation(getClass().getResource("/FXML/manage_main.fxml"));
 						Parent root = (Parent) loader.load();
 						Scene scene = new Scene(root);
-						
-						//관리자 창에 정보넘겨주기(근무자이름)
-						manage_main_control data = loader.getController();
-						data.Work(worker_name);
-						
-						
-						//login객체의 변수값 수정
-						Login login = Login.getInstance();
-						login.isLogin=true;
-						login.isPower=worker_power;
-						
+							
 						
 						//출근날짜,시간 근태 DB에 저장
 						SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");

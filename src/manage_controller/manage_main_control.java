@@ -52,7 +52,7 @@ public class manage_main_control implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		handler = new DBhandle();
-		Time();
+		Info();
 		//사용자-일반 눌렀을때
 		basic.setOnAction(e -> GoMain(e)); //메인
 		
@@ -62,19 +62,17 @@ public class manage_main_control implements Initializable {
 			GoMain(e2); //메인
 		});
 	}
-	public void Time() {
+	public void Info() { //시간정보,근무자 정보
 		SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH:mm");
 		Date time = new Date();
 		String thistime = format.format(time);
 		
 		nowTime.setText(thistime);
-		
+
+		Login login = Login.getInstance();
+		worker.setText(login.isName);
 	}
-	
-	public void Work(String name) { //정보받아오기
-		worker.setText(name);
-	}
-	
+
 	public void Getoff() { //퇴근처리
 		try {
 			//마지막 행 근태정보 선택
@@ -112,6 +110,8 @@ public class manage_main_control implements Initializable {
 		//로그아웃으로 변경
 		Login login = Login.getInstance();
 		login.isLogin=false;
+		login.isName="";
+		login.isPower="";
 		
 	}
 	
@@ -176,8 +176,8 @@ public class manage_main_control implements Initializable {
 			Scene scene = new Scene(root);
 			
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.setTitle("수입");
-
 			stage.show();
 		} catch (IOException e3) {
 			e3.printStackTrace();

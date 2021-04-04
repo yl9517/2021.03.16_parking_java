@@ -24,13 +24,16 @@ public class basic_inNum_control implements Initializable{
 
     @FXML
     private Label msg;
-    
+    private Button beforeBtn;
     
 	public void initialize(java.net.URL arg0, java.util.ResourceBundle arg1) {
-		
+
 	};
-	
-	public void submitAction(ActionEvent e3) {
+	public void data(Button btn) {
+		beforeBtn = btn;
+		
+	}
+	public void SubmitAction(ActionEvent e4 ) {
 		String carNumber = carNum.getText();
 
 		if(carNumber.length()==7) {
@@ -42,6 +45,7 @@ public class basic_inNum_control implements Initializable{
 				int last = Integer.parseInt(carNumber.substring(3));
 				
 				carNum.getScene().getWindow().hide();
+				beforeBtn.getScene().getWindow().hide();//이전창 닫기
 				
 				Stage stage = new Stage(StageStyle.UTILITY);
 				stage.initModality(Modality.WINDOW_MODAL); //현재 창 고정???
@@ -60,8 +64,7 @@ public class basic_inNum_control implements Initializable{
 				
 				//차량번호 넘겨주기
 				basic_park_control data = loader.getController();
-				data.GetCarNum(carNumber);
-				
+				data.GetCarNum(carNumber);				
 				
 				stage.setScene(scene);
 				stage.setTitle("입차_자리선택");

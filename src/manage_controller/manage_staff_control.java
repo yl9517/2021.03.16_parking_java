@@ -1,3 +1,4 @@
+
 package manage_controller;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ import com.mysql.cj.xdevapi.DbDoc;
 import com.sun.javafx.logging.Logger;
 
 import DBconnect.DBhandle;
+import basic_controller.basic_inNum_control;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -70,6 +73,8 @@ public class manage_staff_control implements Initializable{
 
     @FXML
     private TextField keyword2;
+    @FXML
+    private Label alert;
 
     private ObservableList<staff> oblist = FXCollections.observableArrayList(); //테이블 리스트
 
@@ -78,6 +83,8 @@ public class manage_staff_control implements Initializable{
 	    private Connection connection;
 	    private DBhandle handler;
 	    private PreparedStatement pst;
+	    
+	    private int key = 0;
 	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -94,14 +101,32 @@ public class manage_staff_control implements Initializable{
 			updateStaff.setDisable(true);
 		}
 		
+		
+		submit.setOnAction(e3 -> {
+			if(!keyword.getText().equals(null))  //검색어가 있따면
+				key =1;
+			showstaff();
+		});
+		submit2.setOnAction(e3 -> {
+			if(!keyword2.getText().equals(null))  //검색어가 있따면
+				key =2;
+			showworker();
+		});
+		
 	}
 	
 	public void showstaff() {
+		oblist.clear();
+		connection = handler.getConnnection();
 		try {
-			connection = handler.getConnnection();
 			String sql = "select * from manage";
-			
 			pst = connection.prepareStatement(sql);
+			
+			if(key==1) { //검색어 있을 경우
+				sql="select * from manage where name like ?";
+				pst = connection.prepareStatement(sql);
+				pst.setString(1, "%"+keyword.getText()+"%");
+			}
 			
 			ResultSet rs = pst.executeQuery();
 			
@@ -125,38 +150,10 @@ public class manage_staff_control implements Initializable{
 		
 		//staffview에 리스트값 넣어주기
 		staffview.setItems(oblist);
-		
-	}
-	public void showworker() {
-		try {
-			connection = handler.getConnnection();
-			String sql = "SELECT * FROM work";
-			pst = connection.prepareStatement(sql);
-			
-			ResultSet rs = pst.executeQuery();
-			
-			while(rs.next()) {
-				workList.add(new work(rs.getString("startDay"),rs.getString("startTime"),rs.getString("endDay"),rs.getString("endTime"),rs.getString("worker")));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		//콜론 추가
-		startDay.setCellValueFactory(new PropertyValueFactory<>("startDay"));
-		startTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-		endDay.setCellValueFactory(new PropertyValueFactory<>("endDay"));
-		endTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-		worker.setCellValueFactory(new PropertyValueFactory<>("worker"));
-		
-		//테이블 보이게
-		workview.setItems(workList);
-		
-		
-		
 	}
 	
-	public void addAction(ActionEvent e) { //직원추가버튼
+	
+	public void AddAction(ActionEvent e) { //직원추가버튼
 		try {
 			Stage stage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
@@ -181,42 +178,112 @@ public class manage_staff_control implements Initializable{
 	
 	public void UpdateAction(ActionEvent e) { //직원수정버튼
 		try {
-			Stage stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/FXML/allmanage_updateManager.fxml"));
-		
-			Scene scene = new Scene(root);
+			String isPass = staffview.getSelectionModel().getSelectedItem().getPassword();
 			
-			stage.setScene(scene);
-			stage.setTitle("직원 수정");
-			stage.setResizable(false);
-			stage.show();
-			
-		} catch (IOException e1) {
-			e1.printStackTrace();
+				Stage stage = new Stage();
+				
+				FXMLLoader loader = new FXMLLoader();
+				
+				loader.setLocation(getClass().getResource("/FXML/allmanage_updateManager.fxml"));
+				Parent root = (Parent) loader.load();
+				Scene scene = new Scene(root);
+				
+				manage_updateStaff_control connect = loader.getController();
+				connect.getDate(isPass, updateStaff); //사람 정보, 버튼 전송
+				
+				stage.setScene(scene);
+				stage.setTitle("직원 수정");
+				stage.setResizable(false);
+				stage.show();
+				
+		}catch (Exception e2) {
+			alert.setText("직원을 선택하세요");
 		}
+		
 	}
 	
-	public void deleteAction(ActionEvent e) { //선택직원삭제
-		PauseTransition pt = new PauseTransition();
-		pt.setDuration(Duration.seconds(1));
-		
-		pt.setOnFinished(e2 -> {
-			connection = handler.getConnnection();
-			String sql = "delete from manage where password=?";
+	public void DeleteAction(ActionEvent event) { //삭제버튼 누를시
 			try {
+
+				String isPass = staffview.getSelectionModel().getSelectedItem().getPassword();
+				
+				connection = handler.getConnnection();
+				String sql = "delete from manage where password=?";
 				pst = connection.prepareStatement(sql);
-				pst.setString(1, "123");//에 저장된 비밀번호
+				pst.setString(1, isPass);//에 저장된 비밀번호
 				
 				pst.executeUpdate();
 				
+				StaffList(); //리스트 새로 보여주기
 				
 			}catch (Exception e4) {
-				// TODO: handle exception
+				alert.setText("직원을 선택하세요");
+		}
+    }
+	public void StaffList() { //직원리스트 새로 보여주기
+		PauseTransition pt = new PauseTransition();
+		pt.setDuration(Duration.seconds(1));
+
+		pt.setOnFinished(e -> {
+			try {
+
+				deleteStaff.getScene().getWindow().hide();
+				Stage stage = new Stage();
+				Parent root = FXMLLoader.load(getClass().getResource("/FXML/manage_staff2.fxml"));
+				
+				Scene scene = new Scene(root);
+				
+				stage.setScene(scene);
+				stage.setTitle("직원관리");
+				stage.setResizable(false);
+				stage.show();
+			} catch (IOException e4) {
+				e4.printStackTrace();
+			}
+		});
+		pt.play();
+	}	
+	
+	
+	
+	
+	/*근태 테이블뷰*/
+	public void showworker() {
+		connection = handler.getConnnection();
+		workList.clear();
+		try {
+			String sql = "SELECT * FROM work";
+			pst = connection.prepareStatement(sql);
+			
+			if(key==2) { //검색어 있을 경우
+				sql="select * from work where worker like ?";
+				pst = connection.prepareStatement(sql);
+				pst.setString(1, "%"+keyword2.getText()+"%");
 			}
 			
-		});
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				workList.add(new work(rs.getString("startDay"),rs.getString("startTime"),rs.getString("endDay"),rs.getString("endTime"),rs.getString("worker")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//콜론 추가
+		startDay.setCellValueFactory(new PropertyValueFactory<>("startDay"));
+		startTime.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+		endDay.setCellValueFactory(new PropertyValueFactory<>("endDay"));
+		endTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+		worker.setCellValueFactory(new PropertyValueFactory<>("worker"));
+		
+		//테이블 보이게
+		workview.setItems(workList);
+		
+		
 		
 	}
+
 	
 	
 }

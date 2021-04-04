@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -68,6 +69,7 @@ public class manage_updateStaff_control implements Initializable{
     @FXML
     private Button submit,cancel;
     private Button beforebtn;
+    private String isPass;
 
     @FXML
     private Label elart;
@@ -83,19 +85,63 @@ public class manage_updateStaff_control implements Initializable{
 		 email2.setItems(emailList);
 		
 		handler = new DBhandle();
+		ShowInfo();
 		
 		submit.setOnAction(e2 -> {
 			DoSubmit(e2);
-			StaffList();
+			StaffList(); //다시 직원관리창 보여주기
 		});
 		
 	}
-	public void getbtn(Button btn) {
+	public void getDate(String pass, Button btn) {
+		isPass = pass; //선택한사람 비밀번호
 		beforebtn = btn;
 	}
+	public void ShowInfo() { 
+		PauseTransition pt = new PauseTransition();
+		pt.setDuration(Duration.seconds(0.1));
+		pt.setOnFinished(e -> {
+		//해당 비밀번호에 해당하는 정보 끌어오기
+		connection = handler.getConnnection();
+		String sql = "select * from manage where password=?";
+
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, isPass);//선택한 정보(전달받은 정보)
+			ResultSet rs = pst.executeQuery();
+			
+			//정보가져오기
+			while(rs.next()) {
+				name.setText(rs.getString("name"));
+				password.setText(rs.getString("password"));
+				birth.setText(rs.getString("birth"));
+				phone.setText(rs.getString("phone"));
+				gender = rs.getString("gender");
+				email1.setText(rs.getString("email").split("@")[0]);
+				email2.setValue(rs.getString("email").split("@")[1]);
+			}
+			password.setDisable(true);
+			
+
+			if(gender.equals("여")) {
+				woman.setSelected(true);
+				man.setSelected(false);
+			}
+			else {
+				woman.setSelected(false);
+				man.setSelected(true);
+			}
+			
+		}catch (Exception e4) {
+			System.out.println("오류");
+		}
+		});
+		pt.play();
+	}
 	
-	public void DoSubmit(ActionEvent e) { //등록버튼 눌렀을 경우
+	public void DoSubmit(ActionEvent e) { //수정버튼 눌렀을 경우
 		elart.setText(""); //초기값
+	
 		email = email1.getText()+"@"+email2.getValue();
 		
 		//성별
@@ -118,11 +164,7 @@ public class manage_updateStaff_control implements Initializable{
 		if(name.getText().equals("")) {
 			elart.setText("이름을 입력하세요");
 		}
-		
-		if(password.getText().equals("")) {
-			
-			elart.setText("비밀번호를 입력하세요");
-		}	
+
 		//생일
 		if(!birth.getText().equals("") ) {
 			try {
@@ -154,19 +196,20 @@ public class manage_updateStaff_control implements Initializable{
 		
 		pt.setOnFinished(e3 -> {
 			connection = handler.getConnnection();
-			String sql = "INSERT INTO manage"+" VALUES(?,?,?,?,?,?,?)";
+			String sql = "update manage set name=?,birth=?,phone=?,email=?, power=? where password=?";
+	
 			try {
 				pst = connection.prepareStatement(sql);
 				
 				pst.setString(1, name.getText());
-				pst.setString(2, password.getText());
-				pst.setString(3, gender);
-				pst.setString(4, birth.getText());
-				pst.setString(5, phone.getText());
-				pst.setString(6, email);
-				pst.setString(7, power);
+				pst.setString(2, birth.getText());
+				pst.setString(3, phone.getText());
+				pst.setString(4, email);
+				pst.setString(5, power);
+				pst.setString(6, isPass);
 				
 				pst.executeUpdate();
+				
 				
 			}catch (Exception e4) {
 				System.out.println("오류");
@@ -175,17 +218,18 @@ public class manage_updateStaff_control implements Initializable{
 		});
 		if(elart.getText().equals("")) {
 			pt.play();
-			submit.getScene().getWindow().hide();
-			beforebtn.getScene().getWindow().hide();
 		}
-		//다시 직원관리창 보여주기
 	}
-	public void StaffList() { //등록 성공시 직원리스트 새로 보여주기
+	
+	public void StaffList() { // 직원리스트 새로 보여주기
 		PauseTransition pt = new PauseTransition();
 		pt.setDuration(Duration.seconds(1));
 		pt.setOnFinished(e -> {
 			try {
-
+				
+				submit.getScene().getWindow().hide();
+				beforebtn.getScene().getWindow().hide();
+				
 				Stage stage = new Stage();
 				Parent root = FXMLLoader.load(getClass().getResource("/FXML/manage_staff2.fxml"));
 				

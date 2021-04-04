@@ -15,6 +15,7 @@ public class Login { //½Ì±ÛÅæ
 	}
 	
 	public boolean isLogin = false;
+	public String isName = "¾øÀ½";
 	public String isPower = "";
 	
 	

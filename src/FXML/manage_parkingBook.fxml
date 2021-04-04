@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="manage_controller.manage_parkingBook_control" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="52.0" prefWidth="630.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,29 +19,29 @@
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <DatePicker layoutX="35.0" layoutY="16.0" prefHeight="23.0" prefWidth="109.0" />
-            <TextField layoutX="425.0" layoutY="16.0" prefHeight="23.0" prefWidth="110.0" />
-            <Button layoutX="542.0" layoutY="16.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="35.0" text="OK" />
+            <DatePicker fx:id="calendar" layoutX="35.0" layoutY="16.0" prefHeight="23.0" prefWidth="109.0" />
+            <TextField fx:id="keyword" layoutX="425.0" layoutY="16.0" prefHeight="23.0" prefWidth="110.0" promptText="차량번호 입력" />
+            <Button fx:id="submit" layoutX="542.0" layoutY="16.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="35.0" text="OK" />
          </children>
       </AnchorPane>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="parkBookView" prefHeight="307.0" prefWidth="579.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="34.0" text="번호" />
-          <TableColumn prefWidth="110.0" text="(출차)날짜" />
-            <TableColumn prefWidth="100.0" text="차량번호" />
-            <TableColumn prefWidth="95.0" text="InTime" />
-            <TableColumn prefWidth="95.0" text="OutTime" />
-            <TableColumn prefWidth="90.0" text="요금" />
-            <TableColumn prefWidth="75.0" text="관리자" />
+          <TableColumn fx:id="col_num" prefWidth="29.0" resizable="false" text="번호" />
+          <TableColumn fx:id="col_date" prefWidth="115.0" resizable="false" text="(출차)날짜" />
+            <TableColumn fx:id="col_carNum" prefWidth="100.0" resizable="false" text="차량번호" />
+            <TableColumn fx:id="col_inTime" prefWidth="90.0" resizable="false" text="InTime" />
+            <TableColumn fx:id="col_outTime" prefWidth="90.0" resizable="false" text="OutTime" />
+            <TableColumn fx:id="col_price" prefWidth="90.0" resizable="false" text="요금" />
+            <TableColumn fx:id="col_staff" prefWidth="70.0" resizable="false" text="관리자" />
         </columns>
       </TableView>
    </center>
    <bottom>
       <AnchorPane prefHeight="37.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="253.0" layoutY="7.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="시간대별 차트" />
+            <Button fx:id="timeChart" layoutX="253.0" layoutY="7.0" onAction="#timeChartAction" mnemonicParsing="false" prefHeight="23.0" prefWidth="94.0" text="시간대별 차트" />
          </children>
       </AnchorPane>
    </bottom>
