@@ -15,10 +15,10 @@ create table park.manage(
 근태DB -  번호, 출근날짜,시간,퇴근날짜,시간,이름
 create table park.work(
     num int not null,
-    getDay varchar(30) not null,
-    getTime varchar(30) not null,
-    getoffDay varchar(30) not null,
-    getoffTime varchar(30) not null,
+    startDay varchar(30) not null,
+    startTime varchar(30) not null,
+    endDay varchar(30) not null,
+    endTime varchar(30) not null,
     woker varchar(30) not null
     );
 
