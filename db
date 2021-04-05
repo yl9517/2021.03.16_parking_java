@@ -17,9 +17,9 @@ create table park.work(
     num int not null,
     startDay varchar(30) not null,
     startTime varchar(30) not null,
-    endDay varchar(30) not null,
-    endTime varchar(30) not null,
-    woker varchar(30) not null
+    endDay varchar(30),
+    endTime varchar(30),
+    worker varchar(30) not null
     );
 
 주차장DB -번호,층수,자리,차번호,사용여부
