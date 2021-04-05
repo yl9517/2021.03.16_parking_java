@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -50,7 +53,8 @@ public class manage_income_control implements Initializable{
 
 	@FXML
 	private Label all_income;
-	private int allPrice=0;
+	private int dayAllPrice = 0; //일 합계
+	private int allPrice=0; //월 합계
 
 	private ObservableList<parkBook> monthIncomeList = FXCollections.observableArrayList();
 
@@ -117,7 +121,8 @@ public class manage_income_control implements Initializable{
 		connection = handler.getConnnection();
 
 		monthIncomeList.clear();
-		
+
+		dayAllPrice=0; //일별 총 수입
 		allPrice=0; //월별 총 수입
 		
 		//월 수입
@@ -159,14 +164,28 @@ public class manage_income_control implements Initializable{
 
 			ResultSet rs = pst.executeQuery();
 
+			//일을 받을 배열 만들기
+			String foundMonth = thisYear+String.format("%02d", thisMonth)+"01";
+			YearMonth findDay = YearMonth.from(LocalDate.parse(foundMonth,DateTimeFormatter.ofPattern("yyyyMMdd")));
+			int[] daysPrice = new int[findDay.lengthOfMonth()]; //마지막 일수만큼 배열 만들어짐
+			
+			
+			
 			while(rs.next()) { //리스트 저장
 				bookMonth = rs.getString("date").substring(5,7);
 				bookDay = rs.getString("date").substring(8,10);
 
-				monthIncomeList.add(new parkBook(String.valueOf(thisYear),bookMonth,bookDay,rs.getInt("price")));
+				int dayValue = Integer.parseInt(bookDay); //리스트에 나오는 모든 일수 저장 	//1일 나왔으면
+				
+				daysPrice[dayValue-1]+=rs.getInt("price"); //해당일 총가격 [0번째]에 1일의 수입 저장
+						
 				allPrice+= rs.getInt("price"); //월 합계
 
 			}
+			for(int i =0; i<findDay.lengthOfMonth(); i++) { //해당 월 일수까지 반복
+				monthIncomeList.add(new parkBook(String.valueOf(thisYear),bookMonth,String.format("%02d", i+1),daysPrice[i]));
+			}
+			
 
 			//가격 콤마
 			DecimalFormat formatter = new DecimalFormat("###,###");
@@ -223,13 +242,13 @@ public class manage_income_control implements Initializable{
 				}
 				
 				for(int i=0; i<monthsPrice.length;i++){ //i = 월
-					
+					//리스트에 저장
 					yearIncomeList.add(
 							new parkBook(String.valueOf(thisYear),
 							String.format("%02d", i+1),		// 2자리 숫자
 							bookDay, monthsPrice[i])
 					);
-					yearIncomeList.get(i).getPrice();															
+					//yearIncomeList.get(i).getPrice();	  -> 왜 썼지??
 				}
 				
 			} catch (SQLException e) {
@@ -261,7 +280,7 @@ public class manage_income_control implements Initializable{
 			
 			//정보 넘기기 (보고있는 월)
 			manage_incomeDayChart_control connect = loader.getController();
-			connect.SetIncomeChart(beforeNextYear.getText(), month.getText(),monthIncomeList);
+			connect.SetIncomeChart(beforeNextYear.getText(), thisMonth,monthIncomeList);
 
 			stage.setScene(scene);
 			stage.setTitle("일별 수입 차트");

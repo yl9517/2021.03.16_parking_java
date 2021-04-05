@@ -45,11 +45,6 @@
    <center>
       <AnchorPane prefHeight="459.0" prefWidth="708.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="floor" disable="true" layoutX="197.0" layoutY="38.0" prefHeight="224.0" prefWidth="363.0" text="B1" textFill="#aeaeae69">
-               <font>
-                  <Font size="300.0" />
-               </font>
-            </Label>
             <Button fx:id="C1" alignment="TOP_LEFT" layoutX="554.0" layoutY="10.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="140.0" style="-fx-background-color: #dcdcdc; -fx-border-color: #969696; -fx-border-radius: 5px;" text="C1" />
             <Button fx:id="C2" alignment="TOP_LEFT" layoutX="554.0" layoutY="94.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="140.0" style="-fx-background-color: #dcdcdc; -fx-border-color: #969696; -fx-border-radius: 5px;" text="C2" />
             <Button fx:id="C3" alignment="TOP_LEFT" layoutX="554.0" layoutY="178.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="140.0" style="-fx-background-color: #dcdcdc; -fx-border-color: #969696; -fx-border-radius: 5px;" text="C3" />
@@ -66,6 +61,11 @@
             <Label fx:id="A2_carnum" alignment="CENTER" layoutX="94.0" layoutY="124.0" prefHeight="15.0" prefWidth="64.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="NanumGothic" size="12.0" />
+               </font>
+            </Label>
+             <Label fx:id="floor" disable="true" layoutX="197.0" layoutY="38.0" prefHeight="224.0" prefWidth="363.0" text="B1" textFill="#aeaeae69">
+               <font>
+                  <Font size="300.0" />
                </font>
             </Label>
             <Label fx:id="A3_carnum" alignment="CENTER" layoutX="95.0" layoutY="208.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">

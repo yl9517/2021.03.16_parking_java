@@ -203,9 +203,10 @@ public class basic_out_control implements Initializable{
 			if(inMM > outMM) { //들어온 분이 더 크면 out에 60 더해주기 (20분 in - 10분 out)
 				outMM +=60;    //무조건 한시간 지나있음
 				stayHH -= 1;	//위에 60분으로 채워주었으니 1시간 빼기
-				if(stayHH==-1)  //머무른 시간이 23시간 이상이라면 (23시간 후 '시'가 같다면)
+				if(stayHH==-1)  {//머무른 시간이 23시간 이상이라면 (23시간 후 '시'가 같다면)
 					stayHH+=24; //하루 더해주기
-				resultDayTime -= 14400; //하루 더했으니 하루치 분 빼주기
+					resultDayTime -= 14400; //하루 더했으니 하루치 분 빼주기
+				}
 			}
 
 			int stayMM = outMM-inMM; 

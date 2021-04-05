@@ -62,6 +62,12 @@ public class manage_parkingBook_control implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		handler = new DBhandle();
+		calendar.setOnAction(e -> {
+			if(calendar.getValue()!=null)
+				key=2;
+			ShowTable();
+			
+		});
 				
 		ShowTable();
 		 
@@ -85,6 +91,13 @@ public class manage_parkingBook_control implements Initializable{
 				pst = connection.prepareStatement(sql);
 				
 				pst.setString(1, "%"+keyword.getText()+"%");
+				key =0;
+			}
+			if(key==2) { //Ä¶¸°´õ ´­·¶À» °æ¿ì
+				sql = "select * from parkbook where date=?";
+				pst = connection.prepareStatement(sql);
+				
+				pst.setString(1, String.valueOf(calendar.getValue()));
 				key =0;
 			}
 			

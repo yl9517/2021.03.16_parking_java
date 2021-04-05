@@ -66,6 +66,8 @@ public class manage_incomeMonthChart_control implements Initializable {
         
 	}
 	
+	
+	
 	public void closeAction() {
 		btnClose.getScene().getWindow().hide();
 	}

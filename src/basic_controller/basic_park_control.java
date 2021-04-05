@@ -52,6 +52,12 @@ public class basic_park_control implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     	handler = new DBhandle();
+    	
+    	SimpleDateFormat format1 = new SimpleDateFormat ("YYYY-MM-dd HH:mm");
+		Date date = new Date();
+		String nowtime = format1.format(date);
+		time.setText(nowtime);
+		
     	floor.setText("B1"); //기본 층
     	CarShow();
 
@@ -100,6 +106,7 @@ public class basic_park_control implements Initializable{
 			connection = handler.getConnnection();
 			String sql = "SELECT seat FROM parking WHERE floor=? AND carNum IS NOT NULL";//carnum이 null이 아닌자리를 선택(주차되어있는 자리)
 			pst = connection.prepareStatement(sql);
+			
 			pst.setString(1, floor.getText());
 			ResultSet rs = pst.executeQuery();
 			
