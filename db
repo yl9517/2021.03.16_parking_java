@@ -25,11 +25,10 @@ create table park.work(
 주차장DB -번호,층수,자리,차번호,사용여부
 
 create table park.parking(
-	parKNum (자동부여),
+	parkNum int not null,(자동부여),
 	floor varchar(20) not null,
 	seat varchar(20) not null,
-	carNum varchar(20),
-	car boolean not null
+	carNum varchar(20)
 );
 
 
@@ -42,7 +41,7 @@ create table park.parkbook(
     inTime varchar(30) not null,
     outTime varchar(30) not null,
     price int not null,
-    staff varchar(30) not null
+    staff varchar(30) not null,
     finish boolean not null
 );
 
