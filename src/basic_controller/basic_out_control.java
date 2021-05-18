@@ -102,7 +102,9 @@ public class basic_out_control implements Initializable{
 					//고객에게 보여질 입차시간
 					car_in.setText(car_inDay+" "+car_inTime);
 				}
-				price();
+				//요금 가져오기
+				car_price.setText(price(car_inDay,car_inTime,saveOutDate,saveOutTime));
+				
 			}catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -158,21 +160,21 @@ public class basic_out_control implements Initializable{
     	
     }
 	
-	public void price() { //요금 계산
+	public String price(String inday, String intime, String outday, String outtime) { //요금 계산
 		resultPrice = 0;
 		//가격시간 ( 최초 10분 무료 이후 10분 지날때마다 800원 )
 		
 		//입차 날짜시간
 		//int inMonth = Integer.parseInt(car_inDay.substring(0,2)); //월
-		int inDay = Integer.parseInt(car_inDay.substring(3));	//일
-		int inHH = Integer.parseInt(car_inTime.substring(0,2));	//시
-		int inMM = Integer.parseInt(car_inTime.substring(3));	//분
+		int inDay = Integer.parseInt(inday.substring(3));	//일
+		int inHH = Integer.parseInt(intime.substring(0,2));	//시
+		int inMM = Integer.parseInt(intime.substring(3));	//분
 		
 		//출차 날짜시간
 		//int outMonth = Integer.parseInt(saveOutDate.substring(5,7));
-		int outDay = Integer.parseInt(saveOutDate.substring(8));
-		int outHH = Integer.parseInt(saveOutTime.substring(0,2));
-		int outMM = Integer.parseInt(saveOutTime.substring(3));
+		int outDay = Integer.parseInt(outday.substring(8));
+		int outHH = Integer.parseInt(outtime.substring(0,2));
+		int outMM = Integer.parseInt(outtime.substring(3));
 		
 		//시간 수정하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!★★★★★★ 하루지났다고 십만원무는거x
 		//하루 넘어갔을때	1
@@ -192,25 +194,36 @@ public class basic_out_control implements Initializable{
 				if(stayDay>=2) { // 이틀이상 지났다면 하루이상 주차한것
 					resultDayTime = (stayDay-1)*1440;
 				}
-			}else { //나간시간이 더 크거나 서로 같음
+			}else if(inHH < outHH){ //나간시간이 더 크면
 				if(stayDay>=1) { //하루이상 지났다면 일당 1440분 더해줌( 하루 안지난상태에서 나간시간이 더 클수 없음)
 					resultDayTime = stayDay*1440;
 				}
 			}
 			int stayHH = outHH-inHH; 
 				
+			if(stayHH ==0) { //머무른 시간이 23시간이라면
+				if(stayDay>=1)
+					stayHH+=24; //하루 더해주기
+			}
+			
+			
 			//머무른 [분]
 			if(inMM > outMM) { //들어온 분이 더 크면 out에 60 더해주기 (20분 in - 10분 out)
 				outMM +=60;    //무조건 한시간 지나있음
 				stayHH -= 1;	//위에 60분으로 채워주었으니 1시간 빼기
-				if(stayHH==-1)  {//머무른 시간이 23시간 이상이라면 (23시간 후 '시'가 같다면)
+				
+//				if(stayHH==-1)  {//머무른 시간이 23시간 이상이라면 (23시간 후 '시'가 같다면)
+//					stayHH+=24; //하루 더해주기
+//				}
+			}
+			if(stayHH ==0) { //머무른 시간이 23시간이라면
+				if(stayDay>=1)
 					stayHH+=24; //하루 더해주기
-					resultDayTime -= 14400; //하루 더했으니 하루치 분 빼주기
-				}
 			}
 
 			int stayMM = outMM-inMM; 
 			
+					System.out.println(stayHH+"시간 "+stayMM); //확인
 			
 			//최종 당일 머무른시간(분으로 계산)
 			int todayTime = (60*stayHH)+stayMM-10;
@@ -218,8 +231,9 @@ public class basic_out_control implements Initializable{
 				//todayTime이 0이면 결과 0
 				if(todayTime <= 0 ) {
 					todayTime = 0;
-					if(stayDay>=1) { //그러나 하루이상이면 1440분
-						todayTime = 1440;
+					if(stayDay>=1) { //그러나 하루이상이면 1440분 //일당에서 1440분 뺴주기
+						resultDayTime-=1440;
+						todayTime = 1430; //10분 빼주기
 					}
 				}
 			
@@ -237,9 +251,16 @@ public class basic_out_control implements Initializable{
 		//가격 콤마
 		DecimalFormat formatter = new DecimalFormat("###,###");
 		String rep = (String) formatter.format(resultPrice);
+
+						System.out.println();
+						System.out.println("일당 시간 :"+resultDayTime);
+						System.out.println("당일 시간 :"+todayTime);
+						System.out.println("총 시간 :"+resultTime);
+						System.out.println("최종 요금 : "+resultPrice);
 		
-		car_price.setText(rep);
-										
+		return rep;
+//		car_price.setText(rep)
+		
 			
 	}
 	

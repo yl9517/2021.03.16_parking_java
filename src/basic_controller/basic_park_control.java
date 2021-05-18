@@ -130,12 +130,11 @@ public class basic_park_control implements Initializable{
 		    //자리버튼 눌렀을 경우
 			for(int i =0; i<buttons.length; i++) {	//버튼숫자만큼 i 돌리고
 				int index=i;
-				buttons[i].setOnMouseClicked( e3 -> { //람다식은 참조에 의한 호출이므로 a=i라고 지정해줘야함
+				buttons[i].setOnAction( e3 -> { //람다식은 참조에 의한 호출이므로 a=i라고 지정해줘야함
 					
 					//자리 정보 전달
 					String seat = buttons[index].getId(); //자리
 					Click(seat); 
-					
 					
 				});
 			}

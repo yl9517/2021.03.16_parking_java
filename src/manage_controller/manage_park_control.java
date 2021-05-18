@@ -109,8 +109,8 @@ public class manage_park_control implements Initializable{
     					use++;
     					
     					//해당 버튼 클릭시 -> 해당 자리에 주차된 주차번호 정보 전달
-    					buttons[i].setOnMouseClicked(e2 ->{
-    						Click(labels[index].getText());
+    					buttons[i].setOnAction(e2 ->{
+    						Click(labels[index].getText()); 
     					});
     				}
     			}
@@ -122,6 +122,7 @@ public class manage_park_control implements Initializable{
 		}
 	}
 	 public void Click(String carNumber) {
+		 
 		 connection = handler.getConnnection();
 		 try { 
 			 String sql ="select * from parkbook where carNum=?";
