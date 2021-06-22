@@ -77,7 +77,7 @@ public class manage_income_control implements Initializable{
 	private Connection connection;
 	private DBhandle handler;
 	private PreparedStatement pst;
-	private String bookMonth, bookDay,date;
+	private String bookMonth,bookDay,date;
 	private int thisYear,thisMonth; 
 
 	@Override
@@ -172,7 +172,6 @@ public class manage_income_control implements Initializable{
 			
 			
 			while(rs.next()) { //리스트 저장
-				bookMonth = rs.getString("date").substring(5,7);
 				bookDay = rs.getString("date").substring(8,10);
 
 				int dayValue = Integer.parseInt(bookDay); //리스트에 나오는 모든 일수 저장 	//1일 나왔으면
@@ -182,12 +181,17 @@ public class manage_income_control implements Initializable{
 				allPrice+= rs.getInt("price"); //월 합계
 
 			}
+			
+		//수입 달력 '연','월' 표시
+			String bookYear = String.valueOf(thisYear);
+			bookMonth = String.format("%02d", thisMonth); 
+			
 			for(int i =0; i<findDay.lengthOfMonth(); i++) { //해당 월 일수까지 반복
-				monthIncomeList.add(new parkBook(String.valueOf(thisYear),bookMonth,String.format("%02d", i+1),daysPrice[i]));
+				monthIncomeList.add(new parkBook(bookYear,bookMonth,String.format("%02d", i+1),daysPrice[i]));
 			}
 			
 
-			//가격 콤마
+		//가격 콤마
 			DecimalFormat formatter = new DecimalFormat("###,###");
 			String all = (String) formatter.format(allPrice);
 			all_income.setText(all);
