@@ -60,6 +60,16 @@ create table park.parkbook(
     finish boolean not null
 );
 ~~~~
+~~~~
+//수입BD
+create table park.income(
+      incomeNum int primary key auto_increment,
+      year int not null,
+      month int not null,
+      day int not null,
+      income int not null,
+);
+~~~~
 ## 사용자서비스
 ![002](https://user-images.githubusercontent.com/80736033/125043001-76293500-e0d5-11eb-9471-129198363b6f.png)
 
