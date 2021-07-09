@@ -1,9 +1,9 @@
 # Parking lot Management (주차장 관리) 프로젝트
 
+#### 프로젝트 수행자 : 총 1명 - 이여름(yl9517@naver.com)
 #### 프로젝트 기간 : 2021.03.16 ~ 2021.04.06 (약 3주)
 ![기간](https://user-images.githubusercontent.com/80736033/125040417-999eb080-e0d2-11eb-9bfd-2aa186236b2c.png)
 
-#### 프로젝트 수행자 : 총 1명 - 이여름(yl9517@naver.com)
 #### 시연 영상 :
 
 ## 환경
