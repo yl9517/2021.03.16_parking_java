@@ -67,7 +67,7 @@ create table park.income(
       year int not null,
       month int not null,
       day int not null,
-      income int not null,
+      income int not null
 );
 ~~~~
 ## 사용자서비스
