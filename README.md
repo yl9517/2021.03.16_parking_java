@@ -3,15 +3,16 @@
 #### 프로젝트 수행자 : 총 1명 - 이여름(yl9517@naver.com)
 #### 프로젝트 기간 : 2021.03.16 ~ 2021.04.06 (약 3주)
 ![기간](https://user-images.githubusercontent.com/80736033/125040417-999eb080-e0d2-11eb-9bfd-2aa186236b2c.png)
+#### 시연 영상 : https://youtu.be/qU-p2KDRApY
 
-#### 시연 영상 :
 ## 개요
 대다수 사람들의 주 이동수단인 자동차, 특정건물에 들어갈 때마다 매번 주차자리를 찾아 돌고 도는 번거로움을 덜기 위해 빠르고 편한 주차서비스를 제공합니다.
 
 ## 환경
-* JAVA (JavaFX)
-* Scene Builder
-* MySQL
+* 사용언어 : JAVA (JavaFX)
+* UI : JavaFX Scene Builder
+* DBMS : MySQL
+* OS : Windows 10
 
 ## MySQL 테이블 생성
 ~~~~
