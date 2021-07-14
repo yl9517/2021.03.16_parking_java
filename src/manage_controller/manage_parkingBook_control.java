@@ -83,11 +83,11 @@ public class manage_parkingBook_control implements Initializable{
 		parkBookList.clear();
 		connection = handler.getConnnection();
 		try {
-			String sql = "SELECT * FROM parkbook";
+			String sql = "SELECT * FROM parkbook order by num desc";
 			pst = connection.prepareStatement(sql);
 			
 			if(key==1) { //검색 확인버튼 눌렀을 경우
-				sql = "select * from parkbook where carNum like ?";
+				sql = "select * from parkbook where carNum like ? order by num desc";
 				pst = connection.prepareStatement(sql);
 				
 				pst.setString(1, "%"+keyword.getText()+"%");

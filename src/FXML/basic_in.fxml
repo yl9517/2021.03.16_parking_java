@@ -12,38 +12,42 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4ddff7a" height="111.0" layoutX="18.0" layoutY="16.0" stroke="#ffffff00" strokeType="INSIDE" width="207.0" />
       <Button fx:id="submit" layoutX="98.0" layoutY="174.0" onAction="#SubmitAction" mnemonicParsing="false" prefHeight="23.0" prefWidth="47.0" text="확인">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Button>
       <Label layoutX="39.0" layoutY="29.0" text="차량 번호">
          <font>
-            <Font size="15.0" />
+            <Font name="Arial" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="carNum" alignment="CENTER" disable="true" editable="false" layoutX="113.0" layoutY="23.0" prefHeight="30.0" prefWidth="92.0">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></TextField>
       <Label fx:id="car_floor" layoutX="83.0" layoutY="63.0" prefHeight="19.0" prefWidth="27.0" text="B1">
          <font>
-            <Font size="20.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Label>
       <Label layoutX="105.0" layoutY="63.0" text="층">
          <font>
-            <Font size="20.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Label>
       <Label fx:id="car_seat" layoutX="133.0" layoutY="64.0" text="A4">
          <font>
-            <Font size="20.0" />
+            <Font name="Arial" size="20.0" />
          </font>
       </Label>
       <Label layoutX="46.0" layoutY="99.0" prefHeight="15.0" prefWidth="54.0" text="입차 시간" />
-      <Label fx:id="time" contentDisplay="CENTER" layoutX="119.0" layoutY="99.0" prefHeight="15.0" prefWidth="78.0" text="03-25 15:23" />
+      <Label fx:id="time" contentDisplay="CENTER" layoutX="119.0" layoutY="99.0" prefHeight="15.0" prefWidth="78.0" text="03-25 15:23">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
       <Label layoutX="45.0" layoutY="143.0" text="주차가 완료되었습니다.">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Arial" size="15.0" />
          </font>
       </Label>
    </children>

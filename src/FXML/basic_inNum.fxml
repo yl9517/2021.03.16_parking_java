@@ -18,7 +18,11 @@
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="carNum" layoutX="46.0" layoutY="70.0" prefHeight="30.0" prefWidth="159.0" />
+      <TextField fx:id="carNum" layoutX="46.0" layoutY="70.0" prefHeight="30.0" prefWidth="159.0">
+       <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+       </TextField>
       <Label fx:id="msg" layoutX="73.0" layoutY="108.0" textFill="RED" />
    </children>
 </AnchorPane>

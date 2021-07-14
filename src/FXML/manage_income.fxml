@@ -28,14 +28,14 @@
                               <TableColumn fx:id="colM_income" prefWidth="77.0" text="수입" />
                           </columns>
                         </TableView>
-                        <Label fx:id="month" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="112.0" layoutY="10.0" prefHeight="28.0" prefWidth="44.0" text="12" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <Label fx:id="month" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="108.0" layoutY="8.5" prefHeight="28.0" prefWidth="44.0" text="12" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="9.0" prefHeight="28.0" prefWidth="25.0" text="월" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="152.0" layoutY="8.0" prefHeight="28.0" prefWidth="25.0" text="월" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
                         <ImageView fx:id="month_right" fitHeight="15.0" fitWidth="18.0" layoutX="266.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">
@@ -50,10 +50,14 @@
                         </ImageView>
                         <Button fx:id="day_chart" layoutX="14.0" layoutY="329.0" onAction="#day_chartAction" mnemonicParsing="false" prefHeight="23.0" prefWidth="103.0" text="일별 수입 차트" />
                         <Label layoutX="152.0" layoutY="333.0" text="총 수입 :" />
-                        <Label fx:id="all_income" alignment="CENTER" layoutX="206.0" layoutY="333.0" text="100,000" />
+                        <Label fx:id="all_income" alignment="CENTER" layoutX="206.0" layoutY="333.0" text="100,000">
+                         	<font>
+                              <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
                         <Label fx:id="beforeNextYear" layoutX="139.0" layoutY="1.0" text="2021">
                            <font>
-                              <Font size="10.0" />
+                              <Font name="Arial" size="10.0" />
                            </font>
                         </Label>
                      </children>
@@ -73,12 +77,12 @@
                         <Button fx:id="month_chart" layoutX="97.0" layoutY="329.0" onAction="#month_chartAction" mnemonicParsing="false" prefHeight="23.0" prefWidth="103.0" text="월별 수입 차트" />
                         <Label fx:id="year" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="6.0" prefHeight="28.0" prefWidth="64.0" text="2019" textAlignment="CENTER">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="168.0" layoutY="6.0" prefHeight="28.0" prefWidth="25.0" text="년" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
                         <ImageView fx:id="year_right" fitHeight="15.0" fitWidth="18.0" layoutX="267.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="12.0">

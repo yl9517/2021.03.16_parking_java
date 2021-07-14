@@ -252,11 +252,11 @@ public class manage_staff_control implements Initializable{
 		connection = handler.getConnnection();
 		workList.clear();
 		try {
-			String sql = "SELECT * FROM work";
+			String sql = "SELECT * FROM work order by num desc";
 			pst = connection.prepareStatement(sql);
 			
 			if(key==2) { //검색어 있을 경우
-				sql="select * from work where worker like ?";
+				sql="select * from work where worker like ? order by num desc";
 				pst = connection.prepareStatement(sql);
 				pst.setString(1, "%"+keyword2.getText()+"%");
 			}

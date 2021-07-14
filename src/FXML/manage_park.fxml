@@ -12,7 +12,7 @@
          <children>
             <Label fx:id="time" layoutX="14.0" layoutY="9.0" prefHeight="27.0" prefWidth="187.0" text="2020-03-05 12:30:55">
                <font>
-                  <Font name="NanumGothicExtraBold" size="17.0" />
+                  <Font name="Arial" size="17.0" />
                </font>
             </Label>
          </children>
@@ -23,17 +23,17 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="9.0" prefHeight="30.0" prefWidth="137.0" text="주차 가능 수 :">
                <font>
-                  <Font name="NanumGothic" size="17.0" />
+                  <Font name="Arial" size="17.0" />
                </font>
             </Label>
             <Label fx:id="unusePark" alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="12.0" text="11">
                <font>
-                  <Font name="NanumGothicExtraBold" size="20.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </Label>
             <Button fx:id="main" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#mainAction" text="메인으로">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Button>
             <Button fx:id="floorB1" layoutX="576.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" text="B1" />
@@ -60,72 +60,72 @@
             <Button fx:id="B4" alignment="TOP_LEFT" layoutX="202.0" layoutY="264.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="140.0" style="-fx-background-color: #dcdcdc; -fx-border-color: #969696; -fx-border-radius: 5px;" text="B4" />
             <Label fx:id="A2_carnum" alignment="CENTER" layoutX="94.0" layoutY="124.0" prefHeight="15.0" prefWidth="64.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
-             <Label fx:id="floor" disable="true" layoutX="197.0" layoutY="38.0" prefHeight="224.0" prefWidth="363.0" text="B1" textFill="#aeaeae69">
+             <Label fx:id="floor" disable="true" layoutX="197.0" layoutY="38.0" prefHeight="227.0" prefWidth="367.0" text="B1" textFill="#aeaeae69">
                <font>
-                  <Font size="300.0" />
+                  <Font name="Arial" size="300.0" />
                </font>
             </Label>
             <Label fx:id="A3_carnum" alignment="CENTER" layoutX="95.0" layoutY="208.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="A4_carnum" alignment="CENTER" layoutX="95.0" layoutY="293.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="B1_carnum" alignment="CENTER" layoutX="240.0" layoutY="40.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="B2_carnum" alignment="CENTER" layoutX="241.0" layoutY="124.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="B3_carnum" alignment="CENTER" layoutX="240.0" layoutY="208.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="B4_carnum" alignment="CENTER" layoutX="241.0" layoutY="293.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="C1_carnum" alignment="CENTER" layoutX="595.0" layoutY="40.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="C2_carnum" alignment="CENTER" layoutX="595.0" layoutY="124.0" prefHeight="15.0" prefWidth="63.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="C3_carnum" alignment="CENTER" layoutX="594.0" layoutY="208.0" prefHeight="15.0" prefWidth="65.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="C4_carnum" alignment="CENTER" layoutX="595.0" layoutY="293.0" prefHeight="15.0" prefWidth="64.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="C5_carnum" alignment="CENTER" layoutX="595.0" layoutY="375.0" prefHeight="15.0" prefWidth="65.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
             <Label fx:id="A1_carnum" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="40.0" prefHeight="15.0" prefWidth="70.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="NanumGothic" size="12.0" />
+                  <Font name="Arial" size="12.0" />
                </font>
             </Label>
          </children>

@@ -11,12 +11,12 @@
    <children>
       <Label layoutX="49.0" layoutY="26.0" prefHeight="21.0" prefWidth="73.0" text="현재시각">
          <font>
-            <Font name="NanumGothic" size="17.0" />
+            <Font name="Arial" size="17.0" />
          </font>
       </Label>
       <Label fx:id="nowTime" layoutX="49.0" layoutY="48.0" text="2021-02-15 20:30:15">
          <font>
-            <Font name="NanumGothicExtraBold" size="19.0" />
+            <Font name="Arial" size="19.0" />
          </font>
       </Label>
       <MenuButton fx:id="user" layoutX="531.0" layoutY="15.0" mnemonicParsing="false" text="사용자">
@@ -27,17 +27,17 @@
       </MenuButton>
       <Button fx:id="carIn" layoutX="240.0" layoutY="119.0" mnemonicParsing="false" onAction="#CarInAction" prefHeight="160.0" prefWidth="136.0" text="입차">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
       <Button fx:id="car" layoutX="52.0" layoutY="119.0" onAction="#CarAction" mnemonicParsing="false" prefHeight="160.0" prefWidth="136.0" text="주차현황">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
       <Button fx:id="carOut" layoutX="429.0" layoutY="119.0" onAction="#CarOutAction" mnemonicParsing="false" prefHeight="160.0" prefWidth="136.0" text="출차">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
    </children>

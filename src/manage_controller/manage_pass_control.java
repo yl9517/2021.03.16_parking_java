@@ -62,7 +62,7 @@ public class manage_pass_control implements Initializable{
 	public void SubmitAction(ActionEvent e) {
 		//비밀번호가 맞으면 창 띄우기 틀리면 말 띄우기
 		PauseTransition pt = new PauseTransition();
-		pt.setDuration(Duration.seconds(1)); //1초 정지 >> 왜?
+		pt.setDuration(Duration.seconds(1)); //1초 정지
 		pt.setOnFinished(e3 -> {
 			
 			connection = handler.getConnnection();

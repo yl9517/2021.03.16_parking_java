@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane fx:controller="manage_controller.manage_staff_control" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <tabs>
@@ -16,6 +17,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="600.0">
                <children>
                   <TableView fx:id="staffview" layoutX="14.0" layoutY="49.0" prefHeight="270.0" prefWidth="574.0">
+                  
                      <columns>
                         <TableColumn fx:id="name" prefWidth="85.0" text="이름" />
                         <TableColumn fx:id="password" prefWidth="90.0" text="비밀번호" />
@@ -23,7 +25,7 @@
                         <TableColumn fx:id="birth" prefWidth="97.0" text="생년월일" />
                         <TableColumn fx:id="phone" prefWidth="100.0" text="연락처" />
                         <TableColumn fx:id="email" prefWidth="100.0" text="이메일" />
-                        <TableColumn fx:id="power" prefWidth="58.0" text="권한" />
+                        <TableColumn fx:id="power" prefWidth="58.0" text="권한" />                     
                      </columns>
                   </TableView>
                   <Button fx:id="addStaff" layoutX="177.0" layoutY="334.0" mnemonicParsing="false" onAction="#AddAction" text="직원 추가" />

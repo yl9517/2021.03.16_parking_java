@@ -223,7 +223,7 @@ public class basic_out_control implements Initializable{
 
 			int stayMM = outMM-inMM; 
 			
-					System.out.println(stayHH+"시간 "+stayMM); //확인
+//					System.out.println(stayHH+"시간 "+stayMM); //확인
 			
 			//최종 당일 머무른시간(분으로 계산)
 			int todayTime = (60*stayHH)+stayMM-10;
@@ -252,11 +252,11 @@ public class basic_out_control implements Initializable{
 		DecimalFormat formatter = new DecimalFormat("###,###");
 		String rep = (String) formatter.format(resultPrice);
 
-						System.out.println();
-						System.out.println("일당 시간 :"+resultDayTime);
-						System.out.println("당일 시간 :"+todayTime);
-						System.out.println("총 시간 :"+resultTime);
-						System.out.println("최종 요금 : "+resultPrice);
+//						System.out.println();
+//						System.out.println("일당 시간 :"+resultDayTime);
+//						System.out.println("당일 시간 :"+todayTime);
+//						System.out.println("총 시간 :"+resultTime);
+//						System.out.println("최종 요금 : "+resultPrice);
 		
 		return rep;
 //		car_price.setText(rep)

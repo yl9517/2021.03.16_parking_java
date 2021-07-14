@@ -11,12 +11,12 @@
    <children>
       <Label layoutX="49.0" layoutY="26.0" prefHeight="24.0" prefWidth="72.0" text="현재시각">
          <font>
-            <Font name="NanumGothic" size="17.0" />
+            <Font name="Arial" size="17.0" />
          </font>
       </Label>
       <Label fx:id="nowTime" layoutX="49.0" layoutY="48.0" text="2021-02-15 20:30:15">
          <font>
-            <Font name="NanumGothicExtraBold" size="19.0" />
+            <Font name="Arial" size="19.0" />
          </font>
       </Label>
       <Label layoutX="450.0" layoutY="337.0" text="근무자 : " />
@@ -30,22 +30,22 @@
       </MenuButton>
       <Button fx:id="car" layoutX="53.0" layoutY="118.0" mnemonicParsing="false" onAction="#CarAction" prefHeight="160.0" prefWidth="136.0" text="주차현황">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
       <Button fx:id="staff" layoutX="429.0" layoutY="118.0" mnemonicParsing="false" onAction="#StaffAction" prefHeight="160.0" prefWidth="136.0" text="직원관리">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
       <Button fx:id="carBook" layoutX="242.0" layoutY="118.0" mnemonicParsing="false" onAction="#CarBookAction" prefHeight="79.0" prefWidth="136.0" text="주차장부">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
       <Button fx:id="income" layoutX="242.0" layoutY="206.0" mnemonicParsing="false" onAction="#IncomeAction" prefHeight="79.0" prefWidth="136.0" text="수입">
          <font>
-            <Font size="23.0" />
+            <Font name="Arial" size="23.0" />
          </font>
       </Button>
    </children>

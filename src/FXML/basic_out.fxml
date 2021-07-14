@@ -12,52 +12,60 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4dcff7d" height="35.0" layoutX="37.0" layoutY="189.0" stroke="TRANSPARENT" strokeType="INSIDE" width="170.0" />
       <Button fx:id="pay" layoutX="95.0" layoutY="244.0" mnemonicParsing="false" onAction="#payAction" prefHeight="20.0" prefWidth="54.0" text="결제">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
       <Label layoutX="39.0" layoutY="29.0" text="차량 번호">
          <font>
-            <Font size="15.0" />
+            <Font name="Arial" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="carNum" disable="true" editable="false" layoutX="113.0" layoutY="23.0" prefHeight="30.0" prefWidth="92.0">
          <font>
-            <Font size="14.0" />
+            <Font name="Arial" size="14.0" />
          </font></TextField>
       <Label fx:id="car_floor" layoutX="56.0" layoutY="66.0" text="B1">
          <font>
-            <Font size="29.0" />
+            <Font name="Arial" size="29.0" />
          </font>
       </Label>
       <Label layoutX="97.0" layoutY="66.0" text="층">
          <font>
-            <Font size="29.0" />
+            <Font name="Arial" size="29.0" />
          </font>
       </Label>
       <Label fx:id="car_seat" layoutX="144.0" layoutY="66.0" text="A4">
          <font>
-            <Font size="29.0" />
+            <Font name="Arial" size="29.0" />
          </font>
       </Label>
       <Label layoutX="46.0" layoutY="123.0" prefHeight="15.0" prefWidth="54.0" text="입차 시간" />
       <Label layoutX="46.0" layoutY="152.0" prefHeight="15.0" prefWidth="54.0" text="현재 시간" />
-      <Label fx:id="car_in" contentDisplay="CENTER" layoutX="119.0" layoutY="123.0" prefHeight="15.0" prefWidth="78.0" text="" />
-      <Label fx:id="car_out" contentDisplay="CENTER" layoutX="119.0" layoutY="152.0" prefHeight="15.0" prefWidth="78.0" text="" />
+      <Label fx:id="car_in" contentDisplay="CENTER" layoutX="119.0" layoutY="123.0" prefHeight="15.0" prefWidth="78.0" text="" >
+      	<font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="car_out" contentDisplay="CENTER" layoutX="119.0" layoutY="152.0" prefHeight="15.0" prefWidth="78.0" text="" >
+      	<font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
       <Label layoutX="56.0" layoutY="196.0" text="요금">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Label>
       <Label fx:id="car_price" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="172.0" layoutY="196.0" text="0" textAlignment="RIGHT" textOverrun="WORD_ELLIPSIS" AnchorPane.rightAnchor="60.0">
          <font>
-            <Font size="16.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Label>
       <Label fx:id="cancel" layoutX="186.0" layoutY="256.0" text="취소" underline="true">
          <font>
-            <Font size="11.0" />
+            <Font name="Arial" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="199.0" text="원" />
+      <Label layoutX="185.0" layoutY="200.0" text="원" />
    </children>
 </AnchorPane>
