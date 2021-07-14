@@ -5,6 +5,8 @@
 ![기간](https://user-images.githubusercontent.com/80736033/125040417-999eb080-e0d2-11eb-9bfd-2aa186236b2c.png)
 
 #### 시연 영상 :
+## 개요
+대다수 사람들의 주 이동수단인 자동차, 특정건물에 들어갈 때마다 매번 주차자리를 찾아 돌고 도는 번거로움을 덜기 위해 빠르고 편한 주차서비스를 제공합니다.
 
 ## 환경
 * JAVA (JavaFX)
@@ -78,4 +80,34 @@ create table park.income(
 
 
 
-## 구현한 기능
+## 구현한 기능 (사용자)
+##### 1. 메인
+![image](https://user-images.githubusercontent.com/80736033/125622540-2d9cd904-c8e1-4ae5-a78a-9e6bed955f2b.png)
+
+##### 2. 주차장부
+![image](https://user-images.githubusercontent.com/80736033/125622967-8a57b324-ee94-4b29-a690-6b29605e2e8d.png)
+- B1, B2, B3층 별 주차현황 확인
+
+##### 3. 입차
+![image](https://user-images.githubusercontent.com/80736033/125623257-bb33a19f-b43a-4039-9ef6-463575b08944.png)
+![image](https://user-images.githubusercontent.com/80736033/125623347-7220271f-4b9d-4634-be6e-2ce8feedb8a0.png)
+![image](https://user-images.githubusercontent.com/80736033/125623866-913e1b4a-7b2a-46c5-85ef-829f9ca4e88f.png)
+- 올바른 차량번호 입력 후 자리 선택하여 입차완료
+- 이미 주차된 자리는 자리선택 불가
+
+##### 4. 출차
+![image](https://user-images.githubusercontent.com/80736033/125625737-b5856081-0390-404a-8535-c57e9505543f.png)
+![image](https://user-images.githubusercontent.com/80736033/125625980-02284256-a15d-457a-a723-98cecaf50f45.png)
+![image](https://user-images.githubusercontent.com/80736033/125626061-887e7483-a266-4e6d-a9d5-3d2dcdf9319a.png)
+- 입차 시간에 비례한 요금 계산
+
+## 구현한 기능 (관리자)
+##### 1. 메인
+![image](https://user-images.githubusercontent.com/80736033/125627405-2735be3f-18db-41d0-ad8d-addd4f144410.png)
+![image](https://user-images.githubusercontent.com/80736033/125627041-8ed328b7-b516-435e-a552-d56b49b3f35d.png)
+
+
+## 보완점
+- [사용자] 요금표 
+- [사용자] 번호인식 확대 필요 (세자리 수)
+- [관리자] 요금 변경란
