@@ -103,10 +103,36 @@ create table park.income(
 ## 구현한 기능 (관리자)
 ##### 1. 메인
 ![image](https://user-images.githubusercontent.com/80736033/125627405-2735be3f-18db-41d0-ad8d-addd4f144410.png)
-![image](https://user-images.githubusercontent.com/80736033/125627041-8ed328b7-b516-435e-a552-d56b49b3f35d.png)
+![image](https://user-images.githubusercontent.com/80736033/125731834-334ff0dc-a6cb-42bd-b162-b1b4af63cc32.png)
+![image](https://user-images.githubusercontent.com/80736033/125732118-7c105aae-aaa0-40d0-a2c3-4f4df89f1472.png)
+
+##### 2. 주차장부
+![image](https://user-images.githubusercontent.com/80736033/125732384-d31753e2-7658-46be-8939-6fbf49548659.png)
+- 현재 주차되어 있는 차량 확인 가능
+- 주차차량 선택 시 현재까지의 요금 확인 가능
+
+##### 3. 직원관리
+![image](https://user-images.githubusercontent.com/80736033/125732897-5d686226-8ad7-4ec1-85b2-2d42b326b997.png)
+![image](https://user-images.githubusercontent.com/80736033/125733118-c0ad0b41-5b8c-4797-9654-361ea98352f5.png)
+![image](https://user-images.githubusercontent.com/80736033/125733178-3a1d48af-bf47-4e3f-987b-6a9231043928.png)
+- 직원 미선택 후 수정/삭제 시 안내
+- staff권한을 가진 직원은 등록/수정/삭제 클릭불가
+- 이름 검색기능 O
+- 직원 근태내역 확인 가능
+
+##### 4. 주차장부
+![image](https://user-images.githubusercontent.com/80736033/125758216-cdacbcb0-f7e6-4689-a4d6-253bca1ac9d9.png)
+- 차량번호 검색기능 O 
+- 선택날짜 장부조회
+- 당일,당월 시간별 입/출차 현황차트
+
+![image](https://user-images.githubusercontent.com/80736033/125761943-523098a4-5cc2-41d7-9764-dd8e515f0b23.png)
+
+
 
 
 ## 보완점
 - [사용자] 요금표 
 - [사용자] 번호인식 확대 필요 (세자리 수)
 - [관리자] 요금 변경란
+- [관리자] 요금계산기능 리팩토링
