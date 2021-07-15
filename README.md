@@ -97,9 +97,7 @@ create table park.income(
 - 이미 주차된 자리는 자리선택 불가
 
 ##### 4. 출차
-![image](https://user-images.githubusercontent.com/80736033/125625737-b5856081-0390-404a-8535-c57e9505543f.png)
-![image](https://user-images.githubusercontent.com/80736033/125625980-02284256-a15d-457a-a723-98cecaf50f45.png)
-![image](https://user-images.githubusercontent.com/80736033/125626061-887e7483-a266-4e6d-a9d5-3d2dcdf9319a.png)
+![image](https://user-images.githubusercontent.com/80736033/125717159-961617a4-60f6-4010-97d4-ff9e902063c9.png)
 - 입차 시간에 비례한 요금 계산
 
 ## 구현한 기능 (관리자)
