@@ -128,6 +128,11 @@ create table park.income(
 
 ![image](https://user-images.githubusercontent.com/80736033/125761943-523098a4-5cc2-41d7-9764-dd8e515f0b23.png)
 
+##### 5. 수입
+![image](https://user-images.githubusercontent.com/80736033/125882724-d6835dad-5472-45f7-b468-f8e30cf2f4fa.png)
+![image](https://user-images.githubusercontent.com/80736033/125886830-1e1aa59a-447d-45ce-9905-09e87118eb0f.png)
+![image](https://user-images.githubusercontent.com/80736033/125889018-07b73073-bb51-4620-84d9-d41dc1239a64.png)
+- 일,월,연별 수입표 및 차트
 
 
 
