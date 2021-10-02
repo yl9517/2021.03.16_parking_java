@@ -1,4 +1,4 @@
-# :tulip: Parking lot Management (주차장 관리) 프로젝트
+ddㅇㅇㅇㅇ# :tulip: Parking lot Management (주차장 관리) 프로젝트
 
 #### 프로젝트 수행자 : 총 1명 - 이여름(yl9517@naver.com)
 #### 프로젝트 기간 : 2021.03.16 ~ 2021.04.06 (약 3주)
@@ -14,6 +14,9 @@
 * UI : JavaFX Scene Builder
 * DBMS : MySQL
 * OS : Windows 10
+
+## DB정의서
+![image](https://user-images.githubusercontent.com/80736033/135705389-b60a29b0-2c60-42b1-8161-c09636389f53.png)
 
 ## MySQL 테이블 생성
 ~~~~
