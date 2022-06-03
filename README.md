@@ -14,12 +14,12 @@
 - 일/월별 수입 그래프 차트
 - 월/연별 수입 장부
 
-## 💻링크
+## 💻 링크
 - 시연영상 :  https://youtu.be/qU-p2KDRApY
-## 스킬
+## 🛠 스킬
 ![image](https://user-images.githubusercontent.com/80736033/171784586-c9211fd7-477f-4a52-a7d2-081cd6d5b97c.png)
 
-## DB정의서
+## 🗺 DB정의서
 ![image](https://user-images.githubusercontent.com/80736033/135705389-b60a29b0-2c60-42b1-8161-c09636389f53.png)
 
 ## 사용자서비스
@@ -30,7 +30,7 @@
 
 
 
-## 기능 (사용자)
+## 🌞 기능 (사용자)
 ##### 1. 메인
 ![image](https://user-images.githubusercontent.com/80736033/125622540-2d9cd904-c8e1-4ae5-a78a-9e6bed955f2b.png)
 
@@ -49,7 +49,7 @@
 ![image](https://user-images.githubusercontent.com/80736033/125717159-961617a4-60f6-4010-97d4-ff9e902063c9.png)
 - 입차 시간에 비례한 요금 계산
 
-##기능 (관리자)
+## 🌞 기능 (관리자)
 ##### 1. 메인
 ![image](https://user-images.githubusercontent.com/80736033/125627405-2735be3f-18db-41d0-ad8d-addd4f144410.png)
 ![image](https://user-images.githubusercontent.com/80736033/125731834-334ff0dc-a6cb-42bd-b162-b1b4af63cc32.png)
